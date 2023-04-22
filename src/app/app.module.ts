@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SimpleTableComponent } from './components/simple-table/simple-table.component';
+import { SimpleTableComponent } from './shared/simple-table/simple-table.component';
 import { UserComponent } from './user/user.component';
 
 @NgModule({

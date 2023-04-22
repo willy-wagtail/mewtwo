@@ -1,11 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
-import {
-  SimpleTableColumn,
-  SimpleTableComponent,
-} from 'src/app/components/simple-table/simple-table.component';
 import { User } from 'src/app/user/user';
+import { SimpleTableColumn } from '../shared/simple-table/simple-table-column';
+import { SimpleTableComponent } from '../shared/simple-table/simple-table.component';
+import { getUserMocks } from './user.mocks';
 
 @Component({
   selector: 'app-user',
@@ -18,6 +17,8 @@ import { User } from 'src/app/user/user';
 export class UserComponent {
   rowIdentifier: keyof User = 'name';
 
+  users: User[] = getUserMocks();
+
   tableColumns: SimpleTableColumn<User>[] = [
     {
       heading: 'Name',
@@ -26,54 +27,16 @@ export class UserComponent {
     {
       heading: 'Title',
       dataProperty: 'title',
+      hideBelowBreakpoint: 'sm',
     },
     {
       heading: 'Email',
       dataProperty: 'email',
-      hideOnMobile: true,
+      hideBelowBreakpoint: 'md',
     },
     {
       heading: 'Role',
       dataProperty: 'role',
-    },
-  ];
-
-  users: User[] = [
-    {
-      name: 'Lindsay Walton',
-      title: 'Front-end Developer',
-      email: 'lindsay.walton@example.com',
-      role: 'Member',
-    },
-    {
-      name: 'Courtney Henry',
-      title: 'Designer',
-      email: 'courtney.henry@example.com',
-      role: 'Admin',
-    },
-    {
-      name: 'Tom Cook',
-      title: 'Director of Product',
-      email: 'tom.cook@example.com',
-      role: 'Member',
-    },
-    {
-      name: 'Whitney Francis',
-      title: 'Copywriter',
-      email: 'whitney.francis@example.com',
-      role: 'Admin',
-    },
-    {
-      name: 'Leonard Krasner',
-      title: 'Senior Designer',
-      email: 'leonard.krasner@example.com',
-      role: 'Owner',
-    },
-    {
-      name: 'Floyd Miles',
-      title: 'Principal Designer',
-      email: 'floyd.miles@example.com',
-      role: 'Member',
     },
   ];
 }

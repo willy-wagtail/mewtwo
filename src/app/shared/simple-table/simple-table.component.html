@@ -2,22 +2,22 @@
   <thead class="border-b border-gray-300">
     <tr>
       <th
-        *ngFor="let column of columns"
+        *ngFor="let column of columns; index as i"
         scope="col"
-        class="text-left"
+        class="heading"
         [ngClass]="{
-          'uppercase tracking-wider font-medium text-xs text-gray-500 py-3':
-            uppercaseHeadings,
-          'font-semibold text-sm text-gray-900 py-3.5': !uppercaseHeadings,
-          'pl-4 md:pl-0 pr-3': column.dataProperty === rowIdentifier,
-          'px-3': column.dataProperty !== rowIdentifier,
-          'hidden sm:table-cell': column.hideOnMobile
+          'heading__text--upper': uppercaseHeadings,
+          'heading__text--default': !uppercaseHeadings,
+          first: i === 0,
+          mid: i !== 0,
+          hide__sm: column.hideBelowBreakpoint === 'sm',
+          hide__md: column.hideBelowBreakpoint === 'md'
         }"
       >
         {{ column.heading }}
       </th>
 
-      <th scope="col" class="pl-3 pr-4 md:pr-0 py-3.5 relative">
+      <th scope="col" class="py-3.5 last relative">
         <span class="sr-only">Edit</span>
       </th>
     </tr>
@@ -32,19 +32,21 @@
       }"
     >
       <td
-        *ngFor="let column of columns"
+        *ngFor="let column of columns; index as j"
         class="whitespace-nowrap text-sm py-4"
         [ngClass]="{
-          'text-gray-900 font-medium pl-4 md:pl-0 pr-3':
-            column.dataProperty === rowIdentifier,
-          'text-gray-500 px-3': column.dataProperty !== rowIdentifier,
-          'hidden sm:table-cell': column.hideOnMobile
+          'cell__text--identifier': column.dataProperty === rowIdentifier,
+          'cell__text--default': column.dataProperty !== rowIdentifier,
+          first: j === 0,
+          mid: j !== 0,
+          hide__sm: column.hideBelowBreakpoint === 'sm',
+          hide__md: column.hideBelowBreakpoint === 'md'
         }"
       >
         {{ row[column.dataProperty] }}
       </td>
 
-      <td class="whitespace-nowrap text-sm py-4 pl-3 pr-4 md:pr-0">
+      <td class="whitespace-nowrap text-sm py-4 last">
         <a href="#" class="text-indigo-600 hover:text-indigo-900">
           Edit
 

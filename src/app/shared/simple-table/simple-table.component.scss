@@ -1,0 +1,51 @@
+:host {
+  @apply py-2 overflow-x-auto block;
+}
+
+.heading {
+  @apply text-left;
+
+  &__text {
+    &--upper {
+      @apply uppercase tracking-wider font-medium text-xs text-gray-500 py-3;
+    }
+
+    &--default {
+      @apply font-semibold text-sm text-gray-900 py-3.5;
+    }
+  }
+}
+
+.first {
+  @apply pl-4 md:pl-0 pr-3;
+}
+
+.mid {
+  @apply px-3;
+}
+
+.last {
+  @apply pl-3 pr-4 md:pr-0;
+}
+
+.hide {
+  &__sm {
+    @apply hidden sm:table-cell;
+  }
+
+  &__md {
+    @apply hidden md:table-cell;
+  }
+}
+
+.cell {
+  &__text {
+    &--identifier {
+      @apply text-gray-900 font-medium;
+    } 
+
+    &--default {
+      @apply text-gray-500;
+    }
+  }
+}
