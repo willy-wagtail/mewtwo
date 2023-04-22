@@ -30,6 +30,7 @@ export class UserComponent {
     {
       heading: 'Email',
       dataProperty: 'email',
+      hideOnMobile: true,
     },
     {
       heading: 'Role',

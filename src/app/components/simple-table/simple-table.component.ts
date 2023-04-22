@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 export interface SimpleTableColumn<Data> {
   readonly heading: string;
   readonly dataProperty: keyof Data;
+  readonly hideOnMobile?: boolean;
 }
 
 @Component({

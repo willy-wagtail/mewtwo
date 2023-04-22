@@ -10,7 +10,8 @@
             uppercaseHeadings,
           'font-semibold text-sm text-gray-900 py-3.5': !uppercaseHeadings,
           'pl-4 md:pl-0 pr-3': column.dataProperty === rowIdentifier,
-          'px-3': column.dataProperty !== rowIdentifier
+          'px-3': column.dataProperty !== rowIdentifier,
+          'hidden sm:table-cell': column.hideOnMobile
         }"
       >
         {{ column.heading }}
@@ -33,11 +34,12 @@
       <td
         *ngFor="let column of columns"
         class="whitespace-nowrap text-sm py-4"
-        [ngClass]="
-          column.dataProperty === rowIdentifier
-            ? 'text-gray-900 font-medium pl-4 md:pl-0 pr-3'
-            : 'text-gray-500 px-3'
-        "
+        [ngClass]="{
+          'text-gray-900 font-medium pl-4 md:pl-0 pr-3':
+            column.dataProperty === rowIdentifier,
+          'text-gray-500 px-3': column.dataProperty !== rowIdentifier,
+          'hidden sm:table-cell': column.hideOnMobile
+        }"
       >
         {{ row[column.dataProperty] }}
       </td>
