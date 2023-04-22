@@ -15,15 +15,13 @@ export interface SimpleTableColumn<Data> {
   standalone: true,
 })
 export class SimpleTableComponent<Data> {
-  /** This array contains heading labels and the data property to pick out the value from rowData */
   @Input() columns!: SimpleTableColumn<Data>[];
 
-  /** Heading labels capitalised or not. */
   @Input() uppercaseHeadings = false;
 
-  /** Data to be displayed in rows. A column will define which property to select from this data. */
   @Input() rowData: Data[] | null = null;
 
-  /** This is the property of a row that identifies that row. */
   @Input() rowIdentifier!: keyof Data;
+
+  @Input() stripedRows = false;
 }

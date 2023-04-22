@@ -9,14 +9,14 @@
           'uppercase tracking-wider font-medium text-xs text-gray-500 py-3':
             uppercaseHeadings,
           'font-semibold text-sm text-gray-900 py-3.5': !uppercaseHeadings,
-          'pl-4 sm:pl-0 pr-3': column.dataProperty === rowIdentifier,
+          'pl-4 md:pl-0 pr-3': column.dataProperty === rowIdentifier,
           'px-3': column.dataProperty !== rowIdentifier
         }"
       >
         {{ column.heading }}
       </th>
 
-      <th scope="col" class="pl-3 pr-4 sm:pr-0 py-3.5 relative">
+      <th scope="col" class="pl-3 pr-4 md:pr-0 py-3.5 relative">
         <span class="sr-only">Edit</span>
       </th>
     </tr>
@@ -25,21 +25,24 @@
   <tbody>
     <tr
       *ngFor="let row of rowData; index as i"
-      [ngClass]="{ 'border-t': i !== 0 }"
+      [ngClass]="{
+        'border-t': !(i === 0 || stripedRows),
+        'bg-gray-50': i % 2 == 1 && stripedRows
+      }"
     >
       <td
         *ngFor="let column of columns"
         class="whitespace-nowrap text-sm py-4"
         [ngClass]="
           column.dataProperty === rowIdentifier
-            ? 'text-gray-900 font-medium pl-4 sm:pl-0 pr-3'
+            ? 'text-gray-900 font-medium pl-4 md:pl-0 pr-3'
             : 'text-gray-500 px-3'
         "
       >
         {{ row[column.dataProperty] }}
       </td>
 
-      <td class="whitespace-nowrap text-sm py-4">
+      <td class="whitespace-nowrap text-sm py-4 pl-3 pr-4 md:pr-0">
         <a href="#" class="text-indigo-600 hover:text-indigo-900">
           Edit
 

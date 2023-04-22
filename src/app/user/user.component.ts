@@ -5,7 +5,7 @@ import {
   SimpleTableColumn,
   SimpleTableComponent,
 } from 'src/app/components/simple-table/simple-table.component';
-import { User } from 'src/app/models/user';
+import { User } from 'src/app/user/user';
 
 @Component({
   selector: 'app-user',
