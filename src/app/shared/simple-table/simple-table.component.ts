@@ -28,6 +28,9 @@ export class SimpleTableComponent<D> {
 
   @Input() verticalLines = false;
 
+  /** Reduces padding around heading and row cells */
+  @Input() condense = false;
+
   isBaseColumn(column: SimpleTableColumn<D>): column is BaseColumn<D> {
     return !(this.isTwoStackColumn(column) || this.isThreeStackColumn(column));
   }
