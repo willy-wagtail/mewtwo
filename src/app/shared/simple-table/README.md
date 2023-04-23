@@ -4,9 +4,9 @@ To do:
 
 - Make the Edit column configurable using a column definition object.
 - Add option to make table header sticky
-- Add option to add vertical lines
 - Add option to condense content
 - Add option to sort a column
 - Add option to add checkboxes
 - Add grouped rows
 - Add dark mode
+- Add SimpleTableColumn support for 'lg', 'xl', and 'xxl' breakpoints

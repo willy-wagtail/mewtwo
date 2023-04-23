@@ -46,15 +46,45 @@
       >
         {{ row[column.dataProperty] }}
 
-        <dl *ngIf="isTwoStackColumn(column)" class="font-normal">
+        <dl
+          *ngIf="isTwoStackColumn(column)"
+          class="font-normal"
+          [ngClass]="
+            column.showSecondaryBelowBreakpoint
+              ? column.showSecondaryBelowBreakpoint === 'md'
+                ? 'md:hidden'
+                : 'sm:hidden'
+              : ''
+          "
+        >
           <dt class="sr-only">{{ column.secondaryHeading }}</dt>
           <dd class="text-gray-700 mt-1">
             {{ row[column.secondaryDataProperty] }}
           </dd>
 
           <ng-container *ngIf="isThreeStackColumn(column)">
-            <dt class="sr-only">{{ column.tiertiaryHeading }}</dt>
-            <dd class="text-gray-500 mt-1">
+            <dt
+              class="sr-only"
+              [ngClass]="
+                column.showTertiaryBelowBreakpoint
+                  ? column.showTertiaryBelowBreakpoint === 'md'
+                    ? 'md:hidden'
+                    : 'sm:hidden'
+                  : ''
+              "
+            >
+              {{ column.tiertiaryHeading }}
+            </dt>
+            <dd
+              class="text-gray-500 mt-1"
+              [ngClass]="
+                column.showTertiaryBelowBreakpoint
+                  ? column.showTertiaryBelowBreakpoint === 'md'
+                    ? 'md:hidden'
+                    : 'sm:hidden'
+                  : ''
+              "
+            >
               {{ row[column.tiertiaryDataProperty] }}
             </dd>
           </ng-container>
