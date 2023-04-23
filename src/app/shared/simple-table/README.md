@@ -1,4 +1,4 @@
-This component attempts to reproduce the designs found [here](https://tailwindui.com/components/application-ui/lists/tables).
+This component attempts to reproduce the different variations of Tailwindcss table components found [here](https://tailwindui.com/components/application-ui/lists/tables).
 
 To do:
 
