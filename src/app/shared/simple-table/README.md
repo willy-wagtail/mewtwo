@@ -2,7 +2,6 @@ This component attempts to reproduce the different variations of Tailwindcss tab
 
 To do:
 
-- Make the Edit column configurable using a column definition object.
 - Add option to make table header sticky
 - Add option to sort a column
 - Add option to add checkboxes

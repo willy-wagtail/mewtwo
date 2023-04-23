@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { User } from 'src/app/user/user';
-import { Column } from '../shared/simple-table/column';
+import { ActionEvent, Column } from '../shared/simple-table/simple-table.model';
 import { SimpleTableComponent } from '../shared/simple-table/simple-table.component';
 import { getUserMocks } from './user.mocks';
 
@@ -48,5 +48,13 @@ export class UserComponent {
       heading: 'Role',
       dataProperty: 'role',
     },
+    {
+      heading: 'Edit',
+      kind: 'Action',
+    },
   ];
+
+  onAction(event: ActionEvent<User>): void {
+    console.log('Action recieved for event: ', event);
+  }
 }

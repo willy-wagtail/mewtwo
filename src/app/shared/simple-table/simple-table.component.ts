@@ -1,6 +1,17 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Column, StackedValuesColumn } from './column';
+import {
+  ActionColumn,
+  ActionEvent,
+  Column,
+  StackedValuesColumn,
+} from './simple-table.model';
 
 @Component({
   selector: 'app-simple-table',
@@ -26,7 +37,17 @@ export class SimpleTableComponent<D> {
   /** Reduces padding around heading and row cells */
   @Input() condense = false;
 
+  @Output() action = new EventEmitter<ActionEvent<D>>();
+
   isStackedColumn(column: Column<D>): column is StackedValuesColumn<D> {
     return !!(column as StackedValuesColumn<D>).secondaryValue;
+  }
+
+  isActionColumn(column: Column<D>): column is ActionColumn {
+    return (column as ActionColumn).kind === 'Action';
+  }
+
+  onAction(heading: string, row: D): void {
+    this.action.emit({ heading, row });
   }
 }
