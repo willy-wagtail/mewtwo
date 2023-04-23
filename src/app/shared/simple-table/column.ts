@@ -1,6 +1,4 @@
-export type SimpleTableColumn<D> =
-  | SingleValueColumn<D>
-  | StackedValuesColumn<D>;
+export type Column<D> = SingleValueColumn<D> | StackedValuesColumn<D>;
 
 export interface SingleValueColumn<D> {
   readonly heading: string;

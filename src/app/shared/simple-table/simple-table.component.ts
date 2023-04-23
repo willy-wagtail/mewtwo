@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SimpleTableColumn, StackedValuesColumn } from './simple-table-column';
+import { Column, StackedValuesColumn } from './column';
 
 @Component({
   selector: 'app-simple-table',
@@ -11,7 +11,7 @@ import { SimpleTableColumn, StackedValuesColumn } from './simple-table-column';
   standalone: true,
 })
 export class SimpleTableComponent<D> {
-  @Input() columns!: SimpleTableColumn<D>[];
+  @Input() columns!: Column<D>[];
 
   @Input() rowData: D[] | null = null;
 
@@ -26,9 +26,7 @@ export class SimpleTableComponent<D> {
   /** Reduces padding around heading and row cells */
   @Input() condense = false;
 
-  isStackedColumn(
-    column: SimpleTableColumn<D>
-  ): column is StackedValuesColumn<D> {
+  isStackedColumn(column: Column<D>): column is StackedValuesColumn<D> {
     return !!(column as StackedValuesColumn<D>).secondaryValue;
   }
 }

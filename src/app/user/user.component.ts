@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { User } from 'src/app/user/user';
-import { SimpleTableColumn } from '../shared/simple-table/simple-table-column';
+import { Column } from '../shared/simple-table/column';
 import { SimpleTableComponent } from '../shared/simple-table/simple-table.component';
 import { getUserMocks } from './user.mocks';
 
@@ -19,7 +19,7 @@ export class UserComponent {
 
   users: User[] = getUserMocks();
 
-  tableColumns: SimpleTableColumn<User>[] = [
+  tableColumns: Column<User>[] = [
     {
       heading: 'Name',
       dataProperty: 'name',
