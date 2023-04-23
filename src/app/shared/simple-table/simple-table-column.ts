@@ -1,22 +1,20 @@
 export type SimpleTableColumn<D> =
-  | BaseColumn<D>
-  | TwoStackColumn<D>
-  | ThreeStackColumn<D>;
+  | SingleValueColumn<D>
+  | StackedValuesColumn<D>;
 
-export interface BaseColumn<D> {
+export interface SingleValueColumn<D> {
   readonly heading: string;
   readonly dataProperty: keyof D;
   readonly hideBelowBreakpoint?: 'sm' | 'md';
 }
 
-export interface TwoStackColumn<D> extends BaseColumn<D> {
-  readonly secondaryHeading: string;
-  readonly secondaryDataProperty: keyof D;
-  readonly showSecondaryBelowBreakpoint?: 'sm' | 'md';
+export interface StackedValuesColumn<D> extends SingleValueColumn<D> {
+  readonly secondaryValue: StackedSupportValue<D>;
+  readonly tertiaryValue?: StackedSupportValue<D>;
 }
 
-export interface ThreeStackColumn<D> extends TwoStackColumn<D> {
-  readonly tiertiaryHeading: string;
-  readonly tiertiaryDataProperty: keyof D;
-  readonly showTertiaryBelowBreakpoint?: 'sm' | 'md';
+export interface StackedSupportValue<D> {
+  readonly heading: string;
+  readonly dataProperty: keyof D;
+  readonly showBelowBreakpoint?: 'sm' | 'md';
 }

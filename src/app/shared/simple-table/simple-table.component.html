@@ -49,45 +49,45 @@
         {{ row[column.dataProperty] }}
 
         <dl
-          *ngIf="isTwoStackColumn(column)"
+          *ngIf="isStackedColumn(column)"
           class="font-normal"
           [ngClass]="
-            column.showSecondaryBelowBreakpoint
-              ? column.showSecondaryBelowBreakpoint === 'md'
+            column.secondaryValue.showBelowBreakpoint
+              ? column.secondaryValue.showBelowBreakpoint === 'md'
                 ? 'md:hidden'
                 : 'sm:hidden'
               : ''
           "
         >
-          <dt class="sr-only">{{ column.secondaryHeading }}</dt>
+          <dt class="sr-only">{{ column.secondaryValue.heading }}</dt>
           <dd class="text-gray-700 mt-1">
-            {{ row[column.secondaryDataProperty] }}
+            {{ row[column.secondaryValue.dataProperty] }}
           </dd>
 
-          <ng-container *ngIf="isThreeStackColumn(column)">
+          <ng-container *ngIf="column.tertiaryValue">
             <dt
               class="sr-only"
               [ngClass]="
-                column.showTertiaryBelowBreakpoint
-                  ? column.showTertiaryBelowBreakpoint === 'md'
+                column.tertiaryValue.showBelowBreakpoint
+                  ? column.tertiaryValue.showBelowBreakpoint === 'md'
                     ? 'md:hidden'
                     : 'sm:hidden'
                   : ''
               "
             >
-              {{ column.tiertiaryHeading }}
+              {{ column.tertiaryValue.heading }}
             </dt>
             <dd
               class="text-gray-500 mt-1"
               [ngClass]="
-                column.showTertiaryBelowBreakpoint
-                  ? column.showTertiaryBelowBreakpoint === 'md'
+                column.tertiaryValue.showBelowBreakpoint
+                  ? column.tertiaryValue.showBelowBreakpoint === 'md'
                     ? 'md:hidden'
                     : 'sm:hidden'
                   : ''
               "
             >
-              {{ row[column.tiertiaryDataProperty] }}
+              {{ row[column.tertiaryValue.dataProperty] }}
             </dd>
           </ng-container>
         </dl>

@@ -23,22 +23,26 @@ export class UserComponent {
     {
       heading: 'Name',
       dataProperty: 'name',
-      secondaryHeading: 'Email',
-      secondaryDataProperty: 'email',
-      showSecondaryBelowBreakpoint: 'md',
-      tiertiaryHeading: 'Title',
-      tiertiaryDataProperty: 'title',
-      showTertiaryBelowBreakpoint: 'sm',
+      secondaryValue: {
+        heading: 'Title',
+        dataProperty: 'title',
+        showBelowBreakpoint: 'md',
+      },
+      tertiaryValue: {
+        heading: 'Email',
+        dataProperty: 'email',
+        showBelowBreakpoint: 'sm',
+      },
     },
     {
       heading: 'Title',
       dataProperty: 'title',
-      hideBelowBreakpoint: 'sm',
+      hideBelowBreakpoint: 'md',
     },
     {
       heading: 'Email',
       dataProperty: 'email',
-      hideBelowBreakpoint: 'md',
+      hideBelowBreakpoint: 'sm',
     },
     {
       heading: 'Role',

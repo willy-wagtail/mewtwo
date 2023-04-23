@@ -1,11 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {
-  SimpleTableColumn,
-  BaseColumn,
-  TwoStackColumn,
-  ThreeStackColumn,
-} from './simple-table-column';
+import { SimpleTableColumn, StackedValuesColumn } from './simple-table-column';
 
 @Component({
   selector: 'app-simple-table',
@@ -31,17 +26,9 @@ export class SimpleTableComponent<D> {
   /** Reduces padding around heading and row cells */
   @Input() condense = false;
 
-  isBaseColumn(column: SimpleTableColumn<D>): column is BaseColumn<D> {
-    return !(this.isTwoStackColumn(column) || this.isThreeStackColumn(column));
-  }
-
-  isTwoStackColumn(column: SimpleTableColumn<D>): column is TwoStackColumn<D> {
-    return !!(column as TwoStackColumn<D>).secondaryDataProperty;
-  }
-
-  isThreeStackColumn(
+  isStackedColumn(
     column: SimpleTableColumn<D>
-  ): column is ThreeStackColumn<D> {
-    return !!(column as ThreeStackColumn<D>).tiertiaryDataProperty;
+  ): column is StackedValuesColumn<D> {
+    return !!(column as StackedValuesColumn<D>).secondaryValue;
   }
 }
