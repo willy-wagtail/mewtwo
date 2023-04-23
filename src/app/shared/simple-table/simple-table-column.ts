@@ -10,9 +10,13 @@ export interface BaseColumn<D> {
 }
 
 export interface TwoStackColumn<D> extends BaseColumn<D> {
+  readonly secondaryHeading: string;
   readonly secondaryDataProperty: keyof D;
+  readonly showSecondaryBelowBreakpoint?: 'sm' | 'md';
 }
 
-export interface ThreeStackColumn<D> extends BaseColumn<D> {
+export interface ThreeStackColumn<D> extends TwoStackColumn<D> {
+  readonly tiertiaryHeading: string;
   readonly tiertiaryDataProperty: keyof D;
+  readonly showTertiaryBelowBreakpoint?: 'sm' | 'md';
 }

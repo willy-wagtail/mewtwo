@@ -44,6 +44,20 @@
         }"
       >
         {{ row[column.dataProperty] }}
+
+        <dl *ngIf="isTwoStackColumn(column)" class="font-normal">
+          <dt class="sr-only">{{ column.secondaryHeading }}</dt>
+          <dd class="text-gray-700 mt-1">
+            {{ row[column.secondaryDataProperty] }}
+          </dd>
+
+          <ng-container *ngIf="isThreeStackColumn(column)">
+            <dt class="sr-only">{{ column.tiertiaryHeading }}</dt>
+            <dd class="text-gray-500 mt-1">
+              {{ row[column.tiertiaryDataProperty] }}
+            </dd>
+          </ng-container>
+        </dl>
       </td>
 
       <td class="whitespace-nowrap text-sm py-4 last">
