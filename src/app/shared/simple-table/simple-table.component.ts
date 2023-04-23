@@ -26,6 +26,8 @@ export class SimpleTableComponent<D> {
 
   @Input() uppercaseHeadings = false;
 
+  @Input() verticalLines = false;
+
   isBaseColumn(column: SimpleTableColumn<D>): column is BaseColumn<D> {
     return !(this.isTwoStackColumn(column) || this.isThreeStackColumn(column));
   }

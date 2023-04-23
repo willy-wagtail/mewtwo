@@ -38,6 +38,10 @@
   }
 }
 
+.vertlines > *:not(:first-child):not(:last-child) {
+  @apply border-x;
+}
+
 .cell {
   &__text {
     &--identifier {

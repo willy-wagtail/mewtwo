@@ -1,6 +1,6 @@
 <table class="table-auto min-w-full">
   <thead class="border-b border-gray-300">
-    <tr>
+    <tr [ngClass]="verticalLines ? 'vertlines' : ''">
       <th
         *ngFor="let column of columns; index as i"
         scope="col"
@@ -28,7 +28,8 @@
       *ngFor="let row of rowData; index as i"
       [ngClass]="{
         'border-t': !(i === 0 || stripedRows),
-        'bg-gray-50': i % 2 == 1 && stripedRows
+        'bg-gray-50': i % 2 == 1 && stripedRows,
+        vertlines: verticalLines
       }"
     >
       <td
