@@ -1,9 +1,11 @@
+import { Breakpoints } from './breakpoints';
+
 export type Column<D> = SingleValueColumn<D> | StackedValuesColumn<D>;
 
 export interface SingleValueColumn<D> {
   readonly heading: string;
   readonly dataProperty: keyof D;
-  readonly hideBelowBreakpoint?: 'sm' | 'md';
+  readonly hideBelowBreakpoint?: Breakpoints;
 }
 
 export interface StackedValuesColumn<D> extends SingleValueColumn<D> {
@@ -14,5 +16,5 @@ export interface StackedValuesColumn<D> extends SingleValueColumn<D> {
 export interface StackedSupportValue<D> {
   readonly heading: string;
   readonly dataProperty: keyof D;
-  readonly showBelowBreakpoint?: 'sm' | 'md';
+  readonly showBelowBreakpoint?: Breakpoints;
 }

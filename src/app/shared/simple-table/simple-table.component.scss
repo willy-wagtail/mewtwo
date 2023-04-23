@@ -46,7 +46,7 @@
   }
 }
 
-.hide {
+.hide-below {
   &__sm {
     @apply hidden sm:table-cell;
   }
@@ -54,9 +54,43 @@
   &__md {
     @apply hidden md:table-cell;
   }
+
+  &__lg {
+    @apply hidden lg:table-cell;
+  }
+
+  &__xl {
+    @apply hidden xl:table-cell;
+  }
+
+  &__2xl {
+    @apply hidden 2xl:table-cell;
+  }
 }
 
-.vertlines > *:not(:first-child):not(:last-child) {
+.show-below {
+  &__sm {
+    @apply sm:hidden;
+  }
+
+  &__md {
+    @apply md:hidden;
+  }
+
+  &__lg {
+    @apply lg:hidden;
+  }
+
+  &__xl {
+    @apply xl:hidden;  
+  }
+
+  &__2xl {
+    @apply 2xl:hidden;  
+  }
+}
+
+.vertical-lines > *:not(:first-child):not(:last-child) {
   @apply border-x;
 }
 

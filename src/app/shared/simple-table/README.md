@@ -8,4 +8,3 @@ To do:
 - Add option to add checkboxes
 - Add grouped rows
 - Add dark mode
-- Add SimpleTableColumn support for 'lg', 'xl', and 'xxl' breakpoints

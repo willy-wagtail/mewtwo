@@ -1,18 +1,21 @@
 <table class="table-auto min-w-full">
   <thead class="border-b border-gray-300">
-    <tr [ngClass]="verticalLines ? 'vertlines' : ''">
+    <tr [ngClass]="verticalLines ? 'vertical-lines' : ''">
       <th
         *ngFor="let column of columns; index as i"
         scope="col"
         class="heading"
         [ngClass]="{
-          'heading__text--upper': uppercaseHeadings,
-          'heading__text--default': !uppercaseHeadings,
+          condense,
           first: i === 0,
           mid: i !== 0,
-          hide__sm: column.hideBelowBreakpoint === 'sm',
-          hide__md: column.hideBelowBreakpoint === 'md',
-          condense
+          'heading__text--upper': uppercaseHeadings,
+          'heading__text--default': !uppercaseHeadings,
+          'hide-below__sm': column.hideBelowBreakpoint === 'sm',
+          'hide-below__md': column.hideBelowBreakpoint === 'md',
+          'hide-below__lg': column.hideBelowBreakpoint === 'lg',
+          'hide-below__xl': column.hideBelowBreakpoint === 'xl',
+          'hide-below__2xl': column.hideBelowBreakpoint === '2xl'
         }"
       >
         {{ column.heading }}
@@ -30,20 +33,23 @@
       [ngClass]="{
         'border-t': !(i === 0 || stripedRows),
         'bg-gray-50': i % 2 == 1 && stripedRows,
-        vertlines: verticalLines
+        'vertical-lines': verticalLines
       }"
     >
       <td
         *ngFor="let column of columns; index as j"
         class="whitespace-nowrap text-sm"
         [ngClass]="{
-          'cell__text--identifier': column.dataProperty === rowIdentifier,
-          'cell__text--default': column.dataProperty !== rowIdentifier,
+          condense,
           first: j === 0,
           mid: j !== 0,
-          hide__sm: column.hideBelowBreakpoint === 'sm',
-          hide__md: column.hideBelowBreakpoint === 'md',
-          condense
+          'cell__text--identifier': column.dataProperty === rowIdentifier,
+          'cell__text--default': column.dataProperty !== rowIdentifier,
+          'hide-below__sm': column.hideBelowBreakpoint === 'sm',
+          'hide-below__md': column.hideBelowBreakpoint === 'md',
+          'hide-below__lg': column.hideBelowBreakpoint === 'lg',
+          'hide-below__xl': column.hideBelowBreakpoint === 'xl',
+          'hide-below__2xl': column.hideBelowBreakpoint === '2xl'
         }"
       >
         {{ row[column.dataProperty] }}
@@ -51,45 +57,36 @@
         <dl
           *ngIf="isStackedColumn(column)"
           class="font-normal"
-          [ngClass]="
-            column.secondaryValue.showBelowBreakpoint
-              ? column.secondaryValue.showBelowBreakpoint === 'md'
-                ? 'md:hidden'
-                : 'sm:hidden'
-              : ''
-          "
+          [ngClass]="{
+            'show-below__sm': column.secondaryValue.showBelowBreakpoint === 'sm',
+            'show-below__md': column.secondaryValue.showBelowBreakpoint === 'md',
+            'show-below__lg': column.secondaryValue.showBelowBreakpoint === 'lg',
+            'show-below__xl': column.secondaryValue.showBelowBreakpoint === 'xl',
+            'show-below__2xl': column.secondaryValue.showBelowBreakpoint === '2xl',
+          }"
         >
           <dt class="sr-only">{{ column.secondaryValue.heading }}</dt>
           <dd class="text-gray-700 mt-1">
             {{ row[column.secondaryValue.dataProperty] }}
           </dd>
 
-          <ng-container *ngIf="column.tertiaryValue">
-            <dt
-              class="sr-only"
-              [ngClass]="
-                column.tertiaryValue.showBelowBreakpoint
-                  ? column.tertiaryValue.showBelowBreakpoint === 'md'
-                    ? 'md:hidden'
-                    : 'sm:hidden'
-                  : ''
-              "
-            >
+          <div
+            *ngIf="column.tertiaryValue"
+            [ngClass]="{
+              'show-below__sm': column.tertiaryValue.showBelowBreakpoint === 'sm',
+              'show-below__md': column.tertiaryValue.showBelowBreakpoint === 'md',
+              'show-below__lg': column.tertiaryValue.showBelowBreakpoint === 'lg',
+              'show-below__xl': column.tertiaryValue.showBelowBreakpoint === 'xl',
+              'show-below__2xl': column.tertiaryValue.showBelowBreakpoint === '2xl',
+            }"
+          >
+            <dt class="sr-only">
               {{ column.tertiaryValue.heading }}
             </dt>
-            <dd
-              class="text-gray-500 mt-1"
-              [ngClass]="
-                column.tertiaryValue.showBelowBreakpoint
-                  ? column.tertiaryValue.showBelowBreakpoint === 'md'
-                    ? 'md:hidden'
-                    : 'sm:hidden'
-                  : ''
-              "
-            >
+            <dd class="text-gray-500 mt-1">
               {{ row[column.tertiaryValue.dataProperty] }}
             </dd>
-          </ng-container>
+          </div>
         </dl>
       </td>
 
