@@ -3,13 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SimpleTableComponent } from './shared/simple-table/simple-table.component';
 import { UserComponent } from './user/user.component';
+import { SidebarLayoutComponent } from './shared/sidebar-layout/sidebar-layout.component';
 
 @NgModule({
   declarations: [AppComponent],
   providers: [],
   bootstrap: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, UserComponent],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    SidebarLayoutComponent,
+    UserComponent,
+  ],
 })
 export class AppModule {}

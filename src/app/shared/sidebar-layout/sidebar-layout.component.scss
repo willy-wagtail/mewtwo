@@ -1,0 +1,13 @@
+:host {
+  @apply block;
+}
+
+
+
+a {
+  @apply text-gray-700;
+
+  &.active {
+    @apply text-indigo-600 bg-gray-50;
+  }
+}
