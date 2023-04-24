@@ -9,17 +9,16 @@
     />
   </div>
 
-  <nav>
-    <ul role="list">
+  <nav class="grow">
+    <ul role="list" class="h-full flex flex-col gap-y-7">
       <li>
-        <ul>
+        <ul role="list">
           <li
             *ngFor="let navItem of navItems; index as i"
             [ngClass]="i !== 0 ? 'mt-1' : ''"
           >
-            <a
-              href="#"
-              class="flex gap-x-3 text-sm leading-6 font-semibold p-2 hover:bg-gray-50 hover:text-indigo-600"
+            <button
+              class="flex gap-x-3 text-sm leading-6 font-semibold w-full p-2 hover:bg-gray-50 hover:text-indigo-600"
               [ngClass]="{
                 active: activeNav === navItem.text
               }"
@@ -36,12 +35,26 @@
                 "
               />
               {{ navItem.text }}
-            </a>
+            </button>
           </li>
         </ul>
+      </li>
+
+      <li class="mt-auto">
+        <button
+          class="flex gap-x-3 text-sm leading-6 font-semibold w-full p-2 hover:bg-gray-50 hover:text-indigo-600"
+        >
+          <app-heroicon
+            name="cog-6-tooth"
+            [classNames]="'w-6 h-6 text-gray-400'"
+          />
+          Settings
+        </button>
       </li>
     </ul>
   </nav>
 </div>
 
-<div class="pl-72"></div>
+<div class="pl-72">
+  <ng-content />
+</div>

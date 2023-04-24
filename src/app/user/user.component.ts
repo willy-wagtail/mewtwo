@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
-import { User } from 'src/app/user/user';
+import { User } from 'src/app/user/user.models';
 import { ActionEvent, Column } from '../shared/simple-table/simple-table.model';
 import { SimpleTableComponent } from '../shared/simple-table/simple-table.component';
 import { getUserMocks } from './user.mocks';
