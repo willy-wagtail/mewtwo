@@ -60,6 +60,44 @@
 </div>
 
 <div class="pl-72">
+  <div class="px-8 border-b h-16 flex items-center justify-end">
+    <div class="flex items-center gap-x-6">
+      <button
+        type="button"
+        class="text-gray-400 hover:text-gray-500 p-2.5 axk bkr"
+      >
+        <span class="sr-only">View notifications</span>
+
+        <app-heroicon name="bell" />
+      </button>
+
+      <div class="bg-gray-200 h-6 w-px" aria-hidden="true"></div>
+
+      <div>
+        <button
+          class="flex items-center p-1.5 yu aqi"
+          id="headlessui-menu-button-1"
+          type="button"
+          aria-haspopup="menu"
+          aria-expanded="false"
+          data-headlessui-state=""
+        >
+          <span class="sr-only">Open user menu</span>
+
+          <img
+            class="bg-gray-50 rounded-full w-8 h-8"
+            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80"
+            alt=""
+          />
+
+          <span class="text-sm font-medium ml-4 leading-6" aria-hidden="true">
+            Tom Cook
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+
   <main class="p-8">
     <ng-content />
   </main>
