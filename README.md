@@ -1,4 +1,4 @@
-# Mewtwo
+# Angular Tailwind UI
 
 Here, I attempt to recreate some [Tailwindcss UI components](https://tailwindui.com/components/) as Angular components and Tailwind css.
 
