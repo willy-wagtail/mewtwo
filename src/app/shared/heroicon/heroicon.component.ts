@@ -1,6 +1,6 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Heroicon } from './heroicon.model';
+import { Heroicon } from './heroicon.models';
 
 @Component({
   selector: 'app-heroicon',

@@ -10,39 +10,40 @@
   </div>
 
   <nav class="grow">
+    <div class="sr-only">
+      {{ navConfig.primary.name }}
+    </div>
+
     <ul role="list" class="h-full flex flex-col gap-y-7">
       <li>
         <ul role="list">
           <li
-            *ngFor="let navItem of navItems; index as i"
+            *ngFor="let item of navConfig.primary.items; index as i"
             [ngClass]="i !== 0 ? 'mt-1' : ''"
           >
-            <button
-              class="flex gap-x-3 text-sm leading-6 font-semibold w-full p-2 hover:bg-gray-50 hover:text-indigo-600"
-              [ngClass]="{
-                active: activeNav === navItem.text
-              }"
-              (mouseover)="mouseoverNav = navItem"
-              (mouseout)="mouseoverNav = null"
-            >
-              <app-heroicon
-                [name]="navItem.icon"
-                [classNames]="
-                  activeNav === navItem.text ||
-                  mouseoverNav?.text === navItem.text
-                    ? 'w-6 h-6 text-indigo-600'
-                    : 'w-6 h-6 text-gray-400'
-                "
-              />
-              {{ navItem.text }}
-            </button>
+            <app-nav-item [item]="item" [active]="activeNav" />
+          </li>
+        </ul>
+      </li>
+
+      <li *ngIf="navConfig.secondary">
+        <div class="text-xs text-gray-400 tracking-wide leading-6 font-medium">
+          {{ navConfig.secondary.name }}
+        </div>
+
+        <ul role="list" class="mt-2">
+          <li
+            *ngFor="let item of navConfig.secondary.items; index as i"
+            [ngClass]="i !== 0 ? 'mt-1' : ''"
+          >
+            <app-nav-item [item]="item" [active]="activeNav" />
           </li>
         </ul>
       </li>
 
       <li class="mt-auto">
         <button
-          class="flex gap-x-3 text-sm leading-6 font-semibold w-full p-2 hover:bg-gray-50 hover:text-indigo-600"
+          class="flex gap-x-3 text-sm leading-6 font-medium w-full p-2 hover:bg-gray-50 hover:text-indigo-600"
         >
           <app-heroicon
             name="cog-6-tooth"

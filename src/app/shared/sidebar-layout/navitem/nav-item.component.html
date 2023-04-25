@@ -1,0 +1,30 @@
+<button
+  class="flex gap-x-3 text-sm leading-6 font-medium w-full p-2 hover:bg-gray-50 hover:text-indigo-600"
+  [ngClass]="{
+    active: active === item.text
+  }"
+  (mouseover)="mouseover = item"
+  (mouseout)="mouseover = null"
+>
+  <app-heroicon
+    *ngIf="isHeroicon(item.icon)"
+    [name]="item.icon.param"
+    [classNames]="
+      active === item.text || mouseover?.text === item.text
+        ? 'w-6 h-6 text-indigo-600'
+        : 'w-6 h-6 text-gray-400'
+    "
+  />
+
+  <app-lettericon
+    *ngIf="isLettericon(item.icon)"
+    [letter]="item.icon.param"
+    [classNames]="
+      active === item.text || mouseover?.text === item.text
+        ? 'w-6 h-6 text-indigo-600 border-indigo-600'
+        : 'w-6 h-6 text-gray-400'
+    "
+  />
+
+  {{ item.text }}
+</button>
