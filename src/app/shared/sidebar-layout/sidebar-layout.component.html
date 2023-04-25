@@ -41,16 +41,19 @@
         </ul>
       </li>
 
-      <li class="mt-auto">
-        <button
-          class="flex gap-x-3 text-sm leading-6 font-medium w-full p-2 hover:bg-gray-50 hover:text-indigo-600"
-        >
-          <app-heroicon
-            name="cog-6-tooth"
-            [classNames]="'w-6 h-6 text-gray-400'"
-          />
-          Settings
-        </button>
+      <li *ngIf="navConfig.tertiary" class="mt-auto">
+        <div class="sr-only">
+          {{ navConfig.tertiary.name }}
+        </div>
+
+        <ul role="list" class="mt-2">
+          <li
+            *ngFor="let item of navConfig.tertiary.items; index as i"
+            [ngClass]="i !== 0 ? 'mt-1' : ''"
+          >
+            <app-nav-item [item]="item" [active]="activeNav" />
+          </li>
+        </ul>
       </li>
     </ul>
   </nav>

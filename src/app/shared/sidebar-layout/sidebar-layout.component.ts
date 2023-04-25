@@ -9,7 +9,6 @@ import {
   NavItem,
   NavItemText,
 } from './sidebar-layout.models';
-import { LettericonComponent } from '../lettericon/lettericon.component';
 import { NavitemComponent } from './navitem/nav-item.component';
 
 const NAV_CONFIG: NavConfig = {
@@ -34,6 +33,10 @@ const NAV_CONFIG: NavConfig = {
       { text: 'Tailwind Labs', icon: { type: 'letter', param: 'T' } },
       { text: 'Workcation', icon: { type: 'letter', param: 'W' } },
     ],
+  },
+  tertiary: {
+    name: 'Settings',
+    items: [{ text: 'Settings', icon: { type: 'hero', param: 'cog-6-tooth' } }],
   },
 };
 

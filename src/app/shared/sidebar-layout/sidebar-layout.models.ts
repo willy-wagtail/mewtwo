@@ -28,4 +28,5 @@ export interface NavGroup {
 export interface NavConfig {
   primary: NavGroup;
   secondary?: NavGroup;
+  tertiary?: NavGroup;
 }

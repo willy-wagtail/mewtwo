@@ -1,5 +1,7 @@
 # Mewtwo
 
+Here, I attempt to recreate some [Tailwindcss UI components](https://tailwindui.com/components/) as Angular components and Tailwind css.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6.
 
 ## Development server
