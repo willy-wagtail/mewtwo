@@ -1,4 +1,5 @@
 export type Heroicon =
+  | 'bars-3'
   | 'bell'
   | 'calendar'
   | 'chart-pie'
