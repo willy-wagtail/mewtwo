@@ -3,6 +3,11 @@
   mask-image: radial-gradient(32rem 32rem at center, white, transparent);
 }
 
+.bey {
+  -webkit-mask-image: radial-gradient(50% 45% at 50% 55%, white, transparent);
+  mask-image: radial-gradient(50% 45% at 50% 55%, white, transparent);
+}
+
 .abu> :not([hidden])~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
